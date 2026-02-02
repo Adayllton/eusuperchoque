@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EUSUPERCHOQUE // Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Rock+Salt&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #f4f4f0;
+            --eletric-blue: #2d55ff;
+            --danger-red: #ff1a1a;
+            --ink: #111;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            background-image: 
+                linear-gradient(rgba(45, 85, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(45, 85, 255, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--ink);
+            font-family: 'Space Mono', monospace;
+            overflow-x: hidden;
+        }
+
+        .font-marker { font-family: 'Permanent Marker', cursive; }
+        .font-chaos { font-family: 'Rock Salt', cursive; }
+
+        /* Estilo Scrapbook/Colagem */
+        .card-scrap {
+            background: white;
+            box-shadow: 6px 6px 0px var(--ink);
+            transition: all 0.2s ease;
+            position: relative;
+            border: 2px solid var(--ink);
+        }
+
+        .card-scrap:hover {
+            transform: translate(-4px, -4px);
+            box-shadow: 10px 10px 0px var(--eletric-blue);
+            z-index: 20;
+        }
+
+        .card-scrap:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px var(--ink);
+        }
+
+        /* Fitas adesivas */
+        .tape {
+            position: absolute;
+            height: 35px;
+            width: 110px;
+            background-color: rgba(255, 255, 100, 0.6);
+            transform: rotate(-30deg);
+            z-index: 10;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 1px dashed rgba(0,0,0,0.2);
+            border-right: 1px dashed rgba(0,0,0,0.2);
+        }
+
+        /* Animação de Raio/Estática nos Textos */
+        @keyframes shock {
+            0% { transform: translate(0,0) skew(0deg); opacity: 1; }
+            20% { transform: translate(-2px, 2px) skew(-5deg); opacity: 0.8; }
+            40% { transform: translate(2px, -2px) skew(5deg); opacity: 1; }
+            100% { transform: translate(0,0) skew(0deg); }
+        }
+
+        .shock-hover:hover {
+            animation: shock 0.3s infinite;
+            color: var(--eletric-blue);
+        }
+    </style>
+</head>
+<body class="selection:bg-blue-500 selection:text-white">
+
+    <header class="min-h-[60vh] flex flex-col justify-center items-center relative p-4 text-center">
+        
+        <div class="absolute top-10 right-10 opacity-30 rotate-12 animate-pulse">
+            <svg width="80" height="120" viewBox="0 0 24 24" fill="currentColor" class="text-blue-600">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+        </div>
+
+        <div class="inline-block bg-black text-white px-4 py-1 rotate-[-2deg] mb-4 font-marker text-sm border border-white shadow-lg">
+            @ SUPERCHOQUE_999
+        </div>
+
+        <h1 class="font-chaos text-5xl md:text-8xl relative z-10 leading-[0.9] mt-2">
+            EU<br><span class="text-blue-600 shock-hover cursor-default transition-colors">SUPER</span><br>CHOQUE
+        </h1>
+        
+        <p class="font-marker text-lg md:text-2xl mt-8 max-w-md rotate-1 text-gray-700 bg-white px-2 border border-black shadow-[4px_4px_0px_0px_#2d55ff]">
+            Transições + Músicas para roubar pra sua playlist 
+        </p>
+
+        <div class="mt-8 flex gap-4 text-xs font-mono uppercase tracking-widest opacity-60">
+            <span>Músicas pra levitar na madrugada e biscoitar nas horas vagas</span>
+        </div>
+    </header>
+
+    <section id="playlists" class="max-w-6xl mx-auto px-6 py-16">
+        <h2 class="font-marker text-4xl mb-16 text-center decoration-wavy underline decoration-blue-500 rotate-[-1deg]">
+            MY MUSIC TASTE
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+            
+            <a href="Https://open.spotify.com/playlist/5AWCHRt1w3njjF9xxOll0c?si=FrAVOlccTHyT3w9cKdmBHQ" target="_blank" class="block group">
+                <div class="card-scrap p-4 rotate-2 h-full flex flex-col">
+                    <div class="tape -top-3 left-10"></div>
+                    
+                    <div class="aspect-square bg-gray-900 overflow-hidden border border-black relative mb-4">
+                        <img src="./delirios.jpeg" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 grayscale group-hover:grayscale-0">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-blue-600 text-white px-3 py-1 font-bold opacity-0 group-hover:opacity-100 transition-opacity rotate-[-10deg] border border-black shadow-[2px_2px_0px_black]">PLAY</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-chaos text-lg mb-2 leading-tight">Delírios da última dança</h3>
+                    <p class="text-xs font-mono text-gray-600 border-t border-black pt-2 mt-auto">
+                        Puro suco da vibe de delírios
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://open.spotify.com/playlist/4txk9QsR34fjWMpD6NUfe2?si=tWQWHT0mSRKxmUk0pkPqNQ&pi=uuUaycdeRt2Cw" target="_blank" class="block group md:mt-12"> <div class="card-scrap p-4 -rotate-1 h-full flex flex-col">
+                    <div class="tape -top-4 right-10 bg-red-200/80"></div>
+                    
+                    <div class="aspect-square bg-white overflow-hidden border border-black relative mb-4">
+                        <img src="./pov.jpeg" 
+                              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                         <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-red-500 text-white px-3 py-1 font-bold opacity-0 group-hover:opacity-100 transition-opacity rotate-[5deg] border border-black shadow-[2px_2px_0px_black]">PLAY</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-chaos text-lg mb-2 leading-tight">pov: amar.mp3</h3>
+                    <p class="text-xs font-mono text-gray-600 border-t border-black pt-2 mt-auto">
+                        "com a maioria dessas eu me identifico...". 
+                    </p>
+                </div>
+            </a>
+
+            <a href="https://open.spotify.com/playlist/0Jjd8bLRL1gMLRHp5NqoV8?si=bZTrmboQT3qKIBmUdlTwlA&pi=GoqApZsbR86m1" target="_blank" class="block group">
+                <div class="card-scrap p-4 rotate-3 h-full flex flex-col">
+                    <div class="tape -bottom-4 left-4 rotate-12 bg-blue-200/80"></div>
+                    
+                    <div class="aspect-square bg-blue-900 overflow-hidden border border-black relative mb-4">
+                        <img src="./baco.jpeg" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 contrast-125">
+                         <div class="absolute inset-0 flex items-center justify-center">
+                            <span class="bg-white text-black px-3 py-1 font-bold opacity-0 group-hover:opacity-100 transition-opacity rotate-[-5deg] border border-black shadow-[2px_2px_0px_black]">PLAY</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="font-chaos text-lg mb-2 leading-tight">Baco Transições 🐻</h3>
+                    <p class="text-xs font-mono text-gray-600 border-t border-black pt-2 mt-auto">
+                             .             Nosso Baco na melhor das versões
+                    </p>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <section class="py-20 overflow-hidden mt-10">
+        <div class="container mx-auto px-4 text-center">
+            
+            <div class="inline-block relative mb-12">
+                <div class="absolute inset-0 bg-yellow-300 rotate-2 w-full h-full z-0 border-2 border-black"></div>
+                <h2 class="font-marker text-3xl md:text-5xl relative z-10 bg-white border-2 border-black px-8 py-3 transform -rotate-1">
+                    MINHAS REDES
+                </h2>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center gap-6 max-w-2xl mx-auto">
+                
+                <a href="https://www.tiktok.com/@superchoque_999" target="_blank" class="w-full transform transition hover:-rotate-1">
+                    <div class="bg-black text-white border-2 border-black p-4 font-mono text-lg hover:bg-white hover:text-black transition-colors flex items-center justify-between group shadow-[6px_6px_0px_0px_#2d55ff]">
+                        <span class="font-bold">TIKTOK</span>
+                        <span class="group-hover:translate-x-2 transition-transform">@superchoque_999 ↗</span>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/adayllton.mp4" target="_blank" class="w-full transform transition hover:rotate-1">
+                    <div class="bg-white text-black border-2 border-black p-4 font-mono text-lg hover:bg-pink-500 hover:text-white transition-colors flex items-center justify-between group shadow-[6px_6px_0px_0px_#000]">
+                        <span class="font-bold">INSTAGRAM</span>
+                        <span class="group-hover:translate-x-2 transition-transform">@adayllton.mp4 ↗</span>
+                    </div>
+                </a>
+
+            </div>
+            
+            <div class="max-w-2xl mx-auto mt-6 opacity-50">
+                 <div class="bg-transparent border-2 border-dashed border-gray-400 p-3 font-mono text-sm flex items-center justify-center gap-2 cursor-not-allowed">
+                    <span>YOUTUBE (EM BREVE)</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-black text-white p-10 text-center font-mono text-xs border-t-8 border-blue-600 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')]"></div>
+        
+        <div class="relative z-10">
+            <p class="opacity-60 mb-4 tracking-widest">PROJETO EUSUPERCHOQUE © 2026</p>
+            <p class="font-marker text-yellow-300 text-2xl rotate-1 inline-block border-b-2 border-yellow-300 pb-1">"PASSE DO QUASE COM AS PLAYLISTS"</p>
+        </div>
+    </footer>
+
+</body>
+</html>
