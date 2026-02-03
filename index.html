@@ -29,13 +29,13 @@
         .font-marker { font-family: 'Permanent Marker', cursive; }
         .font-chaos { font-family: 'Rock Salt', cursive; }
 
-        /* Estilo Scrapbook/Colagem */
         .card-scrap {
             background: white;
             box-shadow: 6px 6px 0px var(--ink);
             transition: all 0.2s ease;
             position: relative;
             border: 2px solid var(--ink);
+            cursor: pointer; /* Indica que é clicável */
         }
 
         .card-scrap:hover {
@@ -49,7 +49,6 @@
             box-shadow: 2px 2px 0px var(--ink);
         }
 
-        /* Fitas adesivas */
         .tape {
             position: absolute;
             height: 35px;
@@ -63,7 +62,6 @@
             border-right: 1px dashed rgba(0,0,0,0.2);
         }
 
-        /* Animação de Raio/Estática nos Textos */
         @keyframes shock {
             0% { transform: translate(0,0) skew(0deg); opacity: 1; }
             20% { transform: translate(-2px, 2px) skew(-5deg); opacity: 0.8; }
@@ -111,7 +109,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             
-            <a href="https://urlgeni.us/spotify/delirios" target="_blank" class="block group">
+            <div onclick="forceSpotify(event, '5AWCHRt1w3njjF9xxOll0c')" class="block group cursor-pointer">
                 <div class="card-scrap p-4 rotate-2 h-full flex flex-col">
                     <div class="tape -top-3 left-10"></div>
                     
@@ -128,9 +126,10 @@
                         Puro suco da vibe de delírios
                     </p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://urlgeni.us/spotify/pov" target="_blank" class="block group md:mt-12"> <div class="card-scrap p-4 -rotate-1 h-full flex flex-col">
+            <div onclick="forceSpotify(event, '4txk9QsR34fjWMpD6NUfe2')" class="block group md:mt-12 cursor-pointer"> 
+                <div class="card-scrap p-4 -rotate-1 h-full flex flex-col">
                     <div class="tape -top-4 right-10 bg-red-200/80"></div>
                     
                     <div class="aspect-square bg-white overflow-hidden border border-black relative mb-4">
@@ -146,9 +145,9 @@
                         "com a maioria dessas eu me identifico...". 
                     </p>
                 </div>
-            </a>
+            </div>
 
-            <a href="https://urlgeni.us/spotify/baco" target="_blank" class="block group">
+            <div onclick="forceSpotify(event, '0Jjd8bLRL1gMLRHp5NqoV8?')" class="block group cursor-pointer">
                 <div class="card-scrap p-4 rotate-3 h-full flex flex-col">
                     <div class="tape -bottom-4 left-4 rotate-12 bg-blue-200/80"></div>
                     
@@ -165,7 +164,7 @@
                              .             Nosso Baco na melhor das versões
                     </p>
                 </div>
-            </a>
+            </div>
 
         </div>
     </section>
@@ -215,6 +214,34 @@
             <p class="font-marker text-yellow-300 text-2xl rotate-1 inline-block border-b-2 border-yellow-300 pb-1">"PASSE DO QUASE COM AS PLAYLISTS"</p>
         </div>
     </footer>
+
+    <script>
+        function forceSpotify(event, playlistId) {
+            // Se o usuário esqueceu de trocar o ID, avisa ele
+            if (playlistId.includes("COLOQUE")) {
+                alert("Você precisa editar o HTML e colocar o ID real da playlist do Spotify no código!");
+                return;
+            }
+
+            // Define os links
+            // Link que força o app (Deep Link)
+            const appUrl = "spotify:playlist:" + playlistId;
+            // Link de backup (Web) caso o app não abra
+            const webUrl = "https://open.spotify.com/playlist/" + playlistId;
+
+            // Tenta abrir o App imediatamente
+            window.location.href = appUrl;
+
+            // Fallback de Segurança:
+            // Se em 800ms o usuário ainda estiver "vendo" essa página (document.hidden é false),
+            // significa que o app não abriu por cima. Então mandamos para o site normal.
+            setTimeout(function() {
+                if (!document.hidden) {
+                    window.location.href = webUrl;
+                }
+            }, 800);
+        }
+    </script>
 
 </body>
 </html>
